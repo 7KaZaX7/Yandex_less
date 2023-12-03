@@ -120,30 +120,30 @@ class MyWidget(QMainWindow):
             self.inputs[3].setEnabled(False)
 
     def money_order(self):
+        summa = 0
         self.plainTextEdit.clear()
         self.plainTextEdit.insertPlainText("Ваш заказ:\n\n")
         if self.checkBox_4.checkState():
             self.plainTextEdit.insertPlainText(
                 f"Чизбургер{'-' * 5}{self.inputs[0].text()}{'-' * 5}{int(self.lineEdit.text()) * 10}\n"
             )
+            summa += int(self.inputs[0].text()) * 10
         if self.checkBox_3.checkState():
             self.plainTextEdit.insertPlainText(
                 f"Гамбургер{'-' * 5}{self.inputs[1].text()}{'-' * 5}{int(self.lineEdit_2.text()) * 20}\n"
             )
+            summa += int(self.inputs[1].text()) * 20
+        
         if self.checkBox_2.checkState():
             self.plainTextEdit.insertPlainText(
                 f"Кока-кола{'-' * 5}{self.inputs[2].text()}{'-' * 5}{int(self.lineEdit_3.text()) * 40}\n"
             )
+            summa += int(self.inputs[2].text()) * 40
         if self.checkBox.checkState():
             self.plainTextEdit.insertPlainText(
                 f"Нагетсы{'-' * 5}{self.inputs[3].text()}{'-' * 5}{int(self.lineEdit_4.text()) * 15}\n"
             )
-        summa = (
-            int(self.inputs[0].text()) * 10
-            + int(self.inputs[1].text()) * 20
-            + int(self.inputs[2].text()) * 40
-            + int(self.inputs[3].text()) * 15
-        )
+            summa += int(self.inputs[3].text()) * 15
         self.plainTextEdit.insertPlainText(f"\nИтого: {summa}")
 
 

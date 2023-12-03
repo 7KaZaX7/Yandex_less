@@ -13,4 +13,5 @@ def calculate_time():
 
     except FileNotFoundError:
         pass
+calculate_time()
 
